@@ -3,21 +3,21 @@ import { motion, AnimatePresence } from 'framer-motion'
 import LoadingScreen from './components/LoadingScreen'
 import Navigation from './components/Navigation'
 import BackgroundMusic from './components/BackgroundMusic'
-import IntroPage from './pages/IntroPage'
-import WhatIsQuantumPage from './pages/WhatIsQuantumPage'
-import UseCasesPage from './pages/UseCasesPage'
-import ServicesPage from './pages/ServicesPage'
-import RevenuePage from './pages/RevenuePage'
-import ConclusionPage from './pages/ConclusionPage'
+import Scene1ClassicalComputing from './pages/Scene1ClassicalComputing'
+import Scene2QubitsSuperposition from './pages/Scene2QubitsSuperposition'
+import Scene3Entanglement from './pages/Scene3Entanglement'
+import Scene4BusinessImpact from './pages/Scene4BusinessImpact'
+import Scene5ServiceOfferings from './pages/Scene5ServiceOfferings'
+import Scene6Conclusion from './pages/Scene6Conclusion'
 import './App.css'
 
 const PAGES = [
-  { id: 0, component: IntroPage },
-  { id: 1, component: WhatIsQuantumPage },
-  { id: 2, component: UseCasesPage },
-  { id: 3, component: ServicesPage },
-  { id: 4, component: RevenuePage },
-  { id: 5, component: ConclusionPage },
+  { id: 0, component: Scene1ClassicalComputing, duration: 20 }, // 0:00-0:20
+  { id: 1, component: Scene2QubitsSuperposition, duration: 30 }, // 0:20-0:50
+  { id: 2, component: Scene3Entanglement, duration: 30 }, // 0:50-1:20
+  { id: 3, component: Scene4BusinessImpact, duration: 30 }, // 1:20-1:50
+  { id: 4, component: Scene5ServiceOfferings, duration: 30 }, // 1:50-2:20
+  { id: 5, component: Scene6Conclusion, duration: 20 }, // 2:20-2:40
 ]
 
 function App() {
@@ -36,7 +36,8 @@ function App() {
 
   useEffect(() => {
     if (autoplay && !isLoading) {
-      const interval = setInterval(() => {
+      const currentDuration = PAGES[currentPage]?.duration || 20
+      const timeout = setTimeout(() => {
         setCurrentPage((prev) => {
           if (prev >= PAGES.length - 1) {
             setAutoplay(false)
@@ -44,10 +45,10 @@ function App() {
           }
           return prev + 1
         })
-      }, 8000) // Change slide every 8 seconds
-      return () => clearInterval(interval)
+      }, currentDuration * 1000) // Use scene duration from PAGES config
+      return () => clearTimeout(timeout)
     }
-  }, [autoplay, isLoading])
+  }, [autoplay, isLoading, currentPage])
 
   const nextPage = () => {
     if (currentPage < PAGES.length - 1) {

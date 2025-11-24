@@ -63,7 +63,6 @@ const FloatingCard = ({ position, title, description, icon, delay = 0 }) => {
         anchorY="middle"
         maxWidth={2.2}
         textAlign="center"
-        font="/fonts/inter-bold.woff"
       >
         {title}
       </Text>
