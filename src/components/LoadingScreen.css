@@ -1,0 +1,104 @@
+.loading-screen {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.loading-screen::before {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+  animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+.loading-content {
+  text-align: center;
+  z-index: 1;
+}
+
+.quantum-loader {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 40px;
+}
+
+.quantum-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 3px solid transparent;
+}
+
+.ring-1 {
+  width: 120px;
+  height: 120px;
+  border-top-color: #00d4ff;
+  border-right-color: #00d4ff;
+  top: 0;
+  left: 0;
+  animation: spin 2s linear infinite;
+}
+
+.ring-2 {
+  width: 90px;
+  height: 90px;
+  border-bottom-color: #00ffff;
+  border-left-color: #00ffff;
+  top: 15px;
+  left: 15px;
+  animation: spin 1.5s linear infinite reverse;
+}
+
+.ring-3 {
+  width: 60px;
+  height: 60px;
+  border-top-color: #00d4ff;
+  border-bottom-color: #00ffff;
+  top: 30px;
+  left: 30px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-title {
+  font-size: 3rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #00d4ff 0%, #00ffff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+}
+
+.loading-subtitle {
+  font-size: 1.2rem;
+  color: #00d4ff;
+  opacity: 0.7;
+  font-weight: 300;
+}
+
+

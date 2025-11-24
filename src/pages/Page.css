@@ -1,0 +1,526 @@
+.page {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+}
+
+.page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(0, 255, 255, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.page-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  text-align: center;
+}
+
+.page-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #00d4ff 0%, #00ffff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 2rem;
+  letter-spacing: 2px;
+  text-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+}
+
+/* Intro Page */
+.intro-page .page-content {
+  justify-content: center;
+}
+
+.intro-title {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+}
+
+.intro-subtitle {
+  font-size: 2rem;
+  color: #00ffff;
+  margin-bottom: 0.5rem;
+}
+
+.intro-company {
+  font-size: 1.5rem;
+  color: #00d4ff;
+  opacity: 0.8;
+  font-weight: 300;
+}
+
+/* What is Quantum Page */
+.what-is-page .page-content {
+  justify-content: flex-start;
+  padding-top: 80px;
+}
+
+.analogy-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  margin: 40px 0;
+  flex-wrap: wrap;
+}
+
+.analogy-item {
+  flex: 1;
+  min-width: 250px;
+  max-width: 350px;
+  padding: 30px;
+  background: rgba(0, 212, 255, 0.05);
+  border: 2px solid rgba(0, 212, 255, 0.3);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.analogy-icon {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 3rem;
+  background: rgba(0, 212, 255, 0.1);
+  border: 2px solid #00d4ff;
+}
+
+.analogy-icon.classical {
+  border-color: #00d4ff;
+}
+
+.analogy-icon.quantum {
+  border-color: #00ffff;
+  background: rgba(0, 255, 255, 0.1);
+}
+
+.analogy-item h3 {
+  font-size: 1.5rem;
+  color: #00d4ff;
+  margin-bottom: 10px;
+}
+
+.analogy-item p {
+  font-size: 1.1rem;
+  color: #ffffff;
+  opacity: 0.8;
+}
+
+.arrow {
+  font-size: 3rem;
+  color: #00ffff;
+}
+
+.explanation-text {
+  font-size: 1.3rem;
+  color: #ffffff;
+  max-width: 800px;
+  line-height: 1.8;
+  opacity: 0.9;
+  margin-top: 40px;
+}
+
+/* Use Cases Page */
+.use-cases-page .page-content {
+  justify-content: flex-start;
+  padding-top: 60px;
+}
+
+.use-cases-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: 40px 0;
+}
+
+.use-case-card {
+  padding: 30px;
+  background: rgba(0, 212, 255, 0.05);
+  border: 2px solid rgba(0, 212, 255, 0.3);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.use-case-card:hover {
+  background: rgba(0, 212, 255, 0.1);
+  border-color: #00d4ff;
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+}
+
+.use-case-icon {
+  font-size: 3rem;
+  color: #00d4ff;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.use-case-card h3 {
+  font-size: 1.3rem;
+  color: #00ffff;
+  margin-bottom: 10px;
+}
+
+.use-case-card p {
+  font-size: 1rem;
+  color: #ffffff;
+  opacity: 0.8;
+}
+
+.benefits-highlight {
+  max-width: 900px;
+  margin-top: 40px;
+  padding: 30px;
+  background: rgba(0, 255, 255, 0.05);
+  border: 2px solid rgba(0, 255, 255, 0.3);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.benefits-highlight h2 {
+  font-size: 2rem;
+  color: #00ffff;
+  margin-bottom: 20px;
+}
+
+.benefits-highlight ul {
+  list-style: none;
+  text-align: left;
+}
+
+.benefits-highlight li {
+  font-size: 1.2rem;
+  color: #ffffff;
+  padding: 10px 0;
+  padding-left: 30px;
+  position: relative;
+  opacity: 0.9;
+}
+
+.benefits-highlight li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #00ffff;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+/* Services Page */
+.services-page .page-content {
+  justify-content: flex-start;
+  padding-top: 40px;
+}
+
+.target-clients {
+  margin-top: 40px;
+  padding: 30px;
+  background: rgba(0, 212, 255, 0.05);
+  border: 2px solid rgba(0, 212, 255, 0.3);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  max-width: 1000px;
+}
+
+.target-clients h2 {
+  font-size: 2rem;
+  color: #00ffff;
+  margin-bottom: 20px;
+}
+
+.clients-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+.client-item {
+  padding: 15px 25px;
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 25px;
+  color: #00d4ff;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Revenue Page */
+.revenue-page .page-content {
+  justify-content: flex-start;
+  padding-top: 40px;
+}
+
+.chart-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 20px;
+  height: 400px;
+  margin: 40px 0;
+  padding: 0 40px;
+}
+
+.chart-bar-wrapper {
+  flex: 1;
+  max-width: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chart-bar-container {
+  width: 100%;
+  height: 350px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: relative;
+}
+
+.chart-bar {
+  width: 80%;
+  background: linear-gradient(to top, #00d4ff, #00ffff);
+  border-radius: 10px 10px 0 0;
+  position: relative;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 10px;
+  min-height: 50px;
+}
+
+.chart-value {
+  color: #0a0a0f;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.chart-label {
+  margin-top: 10px;
+  color: #00d4ff;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.revenue-stats {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 20px 40px;
+  background: rgba(0, 212, 255, 0.05);
+  border: 2px solid rgba(0, 212, 255, 0.3);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.stat-item h3 {
+  font-size: 2.5rem;
+  color: #00ffff;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.stat-item p {
+  font-size: 1rem;
+  color: #ffffff;
+  opacity: 0.8;
+}
+
+/* Conclusion Page */
+.conclusion-page .page-content {
+  justify-content: center;
+}
+
+.conclusion-title {
+  font-size: 6rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #00d4ff 0%, #00ffff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+  letter-spacing: 3px;
+  text-shadow: 0 0 50px rgba(0, 212, 255, 0.8);
+}
+
+.conclusion-subtitle {
+  font-size: 4rem;
+  font-weight: 700;
+  color: #00ffff;
+  margin-bottom: 40px;
+  letter-spacing: 2px;
+}
+
+.conclusion-content {
+  max-width: 800px;
+}
+
+.conclusion-content p {
+  font-size: 1.5rem;
+  color: #ffffff;
+  opacity: 0.9;
+  margin-bottom: 40px;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-button {
+  padding: 20px 50px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.cta-button.primary {
+  background: linear-gradient(135deg, #00d4ff 0%, #00ffff 100%);
+  color: #0a0a0f;
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+}
+
+.cta-button.primary:hover {
+  box-shadow: 0 0 40px rgba(0, 212, 255, 0.8);
+}
+
+.cta-button.secondary {
+  background: transparent;
+  color: #00d4ff;
+  border: 2px solid #00d4ff;
+}
+
+.cta-button.secondary:hover {
+  background: rgba(0, 212, 255, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .page-title {
+    font-size: 2.5rem;
+  }
+
+  .intro-title {
+    font-size: 3.5rem;
+  }
+
+  .use-cases-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .conclusion-title {
+    font-size: 4rem;
+  }
+
+  .conclusion-subtitle {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-content {
+    padding: 20px;
+  }
+
+  .page-title {
+    font-size: 2rem;
+  }
+
+  .intro-title {
+    font-size: 2.5rem;
+  }
+
+  .intro-subtitle {
+    font-size: 1.5rem;
+  }
+
+  .analogy-box {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .arrow {
+    transform: rotate(90deg);
+  }
+
+  .use-cases-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .chart-container {
+    height: 300px;
+    gap: 10px;
+  }
+
+  .chart-bar-container {
+    height: 250px;
+  }
+
+  .revenue-stats {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .conclusion-title {
+    font-size: 2.5rem;
+  }
+
+  .conclusion-subtitle {
+    font-size: 2rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta-button {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+
