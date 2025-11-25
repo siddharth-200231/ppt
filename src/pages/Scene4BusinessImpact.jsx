@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
 import LTIMindtreeLogo from '../components/LTIMindtreeLogo'
 import BusinessVisuals from '../components/BusinessVisuals'
+import IndustryCaseStudy from '../components/IndustryCaseStudy'
 import ParticleBackground from '../components/ParticleBackground'
 import './Page.css'
 
@@ -22,6 +23,7 @@ const Scene4BusinessImpact = () => {
       setCurrentVisual(prev => {
         if (prev === 'banking') return 'pharma'
         if (prev === 'pharma') return 'logistics'
+        if (prev === 'logistics') return 'cybersecurity'
         return 'banking'
       })
     }, 3000)
@@ -44,7 +46,10 @@ const Scene4BusinessImpact = () => {
         <LTIMindtreeLogo animated={true} />
         
         {showVisuals && (
-          <BusinessVisuals type={currentVisual} />
+          <>
+            <BusinessVisuals type={currentVisual} />
+            <IndustryCaseStudy type={currentVisual} />
+          </>
         )}
         
         <OrbitControls 
@@ -100,6 +105,19 @@ const Scene4BusinessImpact = () => {
           >
             <p>Logistics: Routes refining in real-time</p>
             <p className="subtitle">= Cost optimization</p>
+          </motion.div>
+        )}
+
+        {currentVisual === 'cybersecurity' && (
+          <motion.div
+            key="cybersecurity"
+            className="benefit-text"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <p>Cybersecurity: Quantum-secure vault shields</p>
+            <p className="subtitle">= Protection from threats</p>
           </motion.div>
         )}
 

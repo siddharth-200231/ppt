@@ -4,6 +4,9 @@ import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
 import QubitSphere from '../components/QubitSphere'
 import PossibilitiesWeb from '../components/PossibilitiesWeb'
+import SuperpositionStates from '../components/SuperpositionStates'
+import VolumetricLight from '../components/VolumetricLight'
+import ParticleTrail from '../components/ParticleTrail'
 import ParticleBackground from '../components/ParticleBackground'
 import RobotCharacter from '../components/RobotCharacter'
 import './Page.css'
@@ -40,6 +43,16 @@ const Scene2QubitsSuperposition = () => {
         
         <QubitSphere expand={expanded} />
         <PossibilitiesWeb expanded={expanded} />
+        <SuperpositionStates position={[0, 0, 0]} />
+        <VolumetricLight position={[0, 0, 0]} color="#00C6FF" intensity={2} />
+        {expanded && (
+          <ParticleTrail
+            source={[-4, -2, 3]}
+            target={[0, 0, 0]}
+            color="#00C6FF"
+            particleCount={50}
+          />
+        )}
         
         {/* Robot throwing all keys */}
         {expanded && (

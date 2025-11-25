@@ -1,15 +1,36 @@
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
 import { motion } from 'framer-motion'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import ConveyorBelt from '../components/ConveyorBelt'
 import RobotCharacter from '../components/RobotCharacter'
+import SystemCrash from '../components/SystemCrash'
 import ParticleBackground from '../components/ParticleBackground'
 import './Page.css'
 
 const Scene1ClassicalComputing = () => {
   const [frustrated, setFrustrated] = useState(false)
+  const [systemCrashed, setSystemCrashed] = useState(false)
   const [keysTried, setKeysTried] = useState(0)
+  const [showNarrative, setShowNarrative] = useState(false)
+
+  useEffect(() => {
+    // Show system crash after a few seconds
+    const crashTimer = setTimeout(() => {
+      setSystemCrashed(true)
+      setFrustrated(true)
+    }, 8000)
+
+    // Show narrative text
+    const narrativeTimer = setTimeout(() => {
+      setShowNarrative(true)
+    }, 3000)
+
+    return () => {
+      clearTimeout(crashTimer)
+      clearTimeout(narrativeTimer)
+    }
+  }, [])
 
   const handleConveyorStop = () => {
     setFrustrated(true)
@@ -28,7 +49,8 @@ const Scene1ClassicalComputing = () => {
         
         <ParticleBackground />
         
-        <ConveyorBelt speed={0.5} onStop={handleConveyorStop} />
+        <SystemCrash crashed={systemCrashed} />
+        <ConveyorBelt speed={systemCrashed ? 0 : 0.5} onStop={handleConveyorStop} />
         <RobotCharacter 
           position={[-3, 1, 2]} 
           frustrated={frustrated}
@@ -65,14 +87,26 @@ const Scene1ClassicalComputing = () => {
           Process one state at a time
         </motion.p>
 
-        {frustrated && (
+        {showNarrative && (
+          <motion.p
+            className="narrative-text"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 2 }}
+          >
+            The world is changing faster than classical computers can handle…
+          </motion.p>
+        )}
+
+        {(frustrated || systemCrashed) && (
           <motion.div
             className="frustration-indicator"
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
           >
-            <p>❌ Tried {keysTried} keys... Still searching...</p>
+            <p>❌ System Overload - Too Much Data!</p>
+            <p>Tried {keysTried} keys... Still searching...</p>
           </motion.div>
         )}
       </div>
@@ -81,4 +115,3 @@ const Scene1ClassicalComputing = () => {
 }
 
 export default Scene1ClassicalComputing
-

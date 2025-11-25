@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react'
 import ServiceIcons from '../components/ServiceIcons'
 import ParticleBackground from '../components/ParticleBackground'
 import LTIMindtreeLogo from '../components/LTIMindtreeLogo'
+import HybridCloudQuantum from '../components/HybridCloudQuantum'
 import './Page.css'
 
 const services = [
@@ -17,6 +18,7 @@ const services = [
 const Scene5ServiceOfferings = () => {
   const [assembled, setAssembled] = useState(false)
   const [showText, setShowText] = useState(false)
+  const [showHybrid, setShowHybrid] = useState(false)
 
   useEffect(() => {
     // Start assembling after delay
@@ -24,10 +26,15 @@ const Scene5ServiceOfferings = () => {
       setAssembled(true)
     }, 2000)
 
+    // Show hybrid cloud visualization
+    const hybridTimer = setTimeout(() => {
+      setShowHybrid(true)
+    }, 3000)
+
     // Show text after assembly
     const textTimer = setTimeout(() => {
       setShowText(true)
-    }, 4000)
+    }, 5000)
 
     return () => {
       clearTimeout(assembleTimer)
@@ -48,6 +55,12 @@ const Scene5ServiceOfferings = () => {
         
         {assembled && (
           <LTIMindtreeLogo animated={false} />
+        )}
+
+        {showHybrid && (
+          <group position={[0, -3, 0]}>
+            <HybridCloudQuantum />
+          </group>
         )}
 
         {showText && (

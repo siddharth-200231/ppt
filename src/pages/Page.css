@@ -598,4 +598,31 @@
   color: #4AF0FF;
 }
 
+.narrative-text {
+  font-size: 1.3rem;
+  color: #FFFFFF;
+  opacity: 0.9;
+  font-style: italic;
+  margin-top: 1rem;
+  max-width: 800px;
+}
+
+.tagline-section {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.tagline {
+  font-size: 1.5rem;
+  color: #00C6FF;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.subtagline {
+  font-size: 1.2rem;
+  color: #4AF0FF;
+  font-weight: 500;
+}
+
 
