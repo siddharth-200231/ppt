@@ -59,21 +59,21 @@ const RevenueChart = ({ animated = false }) => {
             />
           </mesh>
           
-          {/* Spark particles around rising bars */}
-          {animated && Array.from({ length: 5 }).map((_, i) => (
+          {/* Subtle spark particles - reduced count */}
+          {animated && Array.from({ length: 2 }).map((_, i) => (
             <mesh
               key={i}
               position={[
-                (Math.random() - 0.5) * 1,
-                (item.value / maxValue) * 3 + Math.random() * 0.5,
-                (Math.random() - 0.5) * 1
+                (Math.random() - 0.5) * 0.8,
+                (item.value / maxValue) * 3 + Math.random() * 0.3,
+                (Math.random() - 0.5) * 0.8
               ]}
             >
-              <sphereGeometry args={[0.05, 8, 8]} />
+              <sphereGeometry args={[0.03, 8, 8]} />
               <meshBasicMaterial
                 color="#4AF0FF"
                 transparent
-                opacity={0.8}
+                opacity={0.5}
               />
             </mesh>
           ))}
